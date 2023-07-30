@@ -1,0 +1,394 @@
+@font-face{
+    font-family: PFCentroSansPro-Italic;
+    src:url(PFCentroSansPro-Italic.ttf);
+    }
+
+   /* По умолчанию у заголовков есть отступы, мы их уберем( для верстки)*/
+    h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    }
+body {
+    font-family: PFCentroSansPro-Italic;
+    font-weight: bold;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/*Слайдер*/
+.intro {
+    display: flex; /* Сообщаем, что генерация боксов будет в режиме flex*/
+    flex-direction: column;  /* Flex в режиме столбиков*/
+    justify-content: center;
+    width: 100%;
+    height: 100vh; /* Параметр указывает что слайд будет занимать 100% экрана посетителя.*/
+    
+    background: url("../images/intro.jpg") center no-repeat fixed;  /* Через параметр fixed фон плывет вниз*/
+    background-size: cover; /* Что бы занимало всю площадь экрана*/
+}
+
+/* Кнопка узнать больше*/
+.intro_button{
+       display: inline;
+       vertical-align: top;
+       padding: 10px 10px;
+
+       text-decoration: none;
+       border: 3px solid aliceblue;
+       text-align: center;
+       color: aliceblue;
+       font-size: 20px;
+       text-transform: uppercase;
+
+       transition: background 0.1s linear, color .1s linear;
+
+       
+}
+.intro_button:hover{  /* Действие кнопки при наведении на неё указателя*/
+    color: #000;
+    background-color:#85a6d3;
+}
+
+/* Контейнер для задания места для текста*/
+.intro_inner{
+     width: 100%;
+     max-width: 1000px;
+     margin: 0 auto;
+     text-align: center;  /* Через этот параметр мы кнопку 'intro_button' выровняли по центру*/
+}
+
+/* Надпись атмахилинг*/
+.intro_suptitle{
+ /*font-family: PFCentroSansPro-XThin;*/
+     font-size: 50px;
+     color:aliceblue;
+     text-align: center;
+}
+/* Форматирование главного текста*/
+.intro_title{
+     font-size: 40px;
+     font-weight: 700;
+     text-align: center;
+     color:aliceblue;
+}
+
+.logo {
+    font-size: 20px;
+    color: aliceblue;
+    text-shadow: 1px 1px 1px #000; /* Добавляем подчеркивание */
+}
+/* Header. Стилизация шапки */
+.header{
+    width: 100%;
+    padding-top: 15px;
+    position: absolute; /* Меню залазит на слайдер intro.*/
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+/* Делаем лого к левому краю, а меню к правому краю*/
+.header_inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Выровнять лого и меню по горизонтали относительно друг друга.*/
+}
+/* Меню*/
+.nav {
+    text-transform: uppercase;
+    font-size: 14px;
+    text-shadow: 1px 1px 1px #000; /* Добавляем подчеркивание */
+}
+
+.nav_link {
+    color: aliceblue;
+    text-decoration: none; /* Подчеркивание убираем*/
+    transition: color 0.2s  linear; /* Плавное окраска меню сайта при наведении*/
+    vertical-align: top;
+    margin: 0 10px; /* Расстаяние между элементами меню*/
+}
+/* Hover - что будет если мы наведем на ссылки меню */
+.nav_link:hover {
+    color: #85a6d3;
+    /*text-decoration: underline;*/
+}
+
+/*Section(Вторая часть сайта)*/
+.section {
+    padding: 40px 0;
+     /* Отступы между секциями по вертикали 80пх*/
+}
+.section--gray{
+    background-color: #f8f8f8;
+}
+
+/* Описываем правила для текста внутри второго блока*/
+.section_header{
+    width: 100%;
+    max-width: 900px; /*Содержание контанта в ширину не будет вылазить за 900пх*/
+    margin: 0 auto 40px; /* Отступы слева, горизонтально, снизу*/
+    
+    text-align: center;
+}
+
+.section_title{
+        /*font-family: PFCentroSansPro-Bold;*/
+        font-size: 35px;
+        text-transform: uppercase;
+        padding: 30px 0;
+        text-align: center;
+
+}
+/* 3 Ниже параметра отвечают за деление текста на 2 столбца*/
+.section_text{
+    white-space: nowrap;
+}
+.section_block{
+    white-space: normal;	
+	display: inline-block;
+	width: 50%;
+	vertical-align: top;	
+}
+.section_block.section_block-item:first-child {
+	margin-right: 4%;
+}
+
+/* Выравнивание элементов во Flex контейнере (Иконки о нас) */
+.about{
+    display: flex;
+    /*justify-content: space-between; Параметр выравнивания из видео.*/ 
+    justify-content: center; /* Отсебятина для вырванивание 2 картинок*/
+    text-align: center;/* Отсебятина для вырванивание 2 картинок*/
+}
+
+.about_item{
+    width: 50%;
+}
+
+/* Препроцессор. Прозрачность*/
+/*.about_item:hover  .about_image img{
+    opacity: 0.7;
+}
+
+/*Блок статистики*/
+.statistics{
+    background-color: #85a6d3;
+}
+.stat{
+ display: flex;
+}
+.stat_item{
+  flex: 1 1 0;  /* Сделать все колонки одинаковыми*/
+  border-left: 1px solid #fff;
+  text-align: center;
+  color:aliceblue;
+  padding: 40px 20px;
+}
+.stat_item:hover{ /* При наведении увеличиваем размер и подкрашеваем бекграунд*/
+    scale: 1.2;
+    background-color: #5483c5;
+}
+
+/* last child - Сделать особенное правило для последнего атрибута(элемента статистики)*/
+.stat_item:last-child{
+    border-right: 1px solid #fff;
+  }
+
+.stat_count{
+    font-size: 25px;
+    text-transform: uppercase;
+}
+.stat_text{
+    font-size: 14px;
+}
+
+/* Раздел FeedBack (services из видео) */
+.feedBack{
+   display: flex;
+}
+.feedBack_item{
+  flex: 1 1 0;
+  padding-left: 90px;
+  padding-top: 10px;
+  padding-right: 20px; /* Отступы междй блоками*/
+
+  position: relative; /* Для того что бы картинку поместить в другое место. в позицию абсолют.*/ 
+  
+}
+.feedBack_image{
+    position: absolute;
+    top: 0;
+    left: 10px; /* Центрируем изображение, что бы было ближе к комментариям*/
+    z-index: 1;
+
+}
+.feedBack_title{
+   font-size: 15px;
+   margin-bottom: 10px; /* Отступ от Никнейма к письму*/
+}
+.feedBack_text{
+    font-size: 12px;
+    text-align: left;
+    font-style: italic;
+    color: #999;
+}
+
+/* Раздел WeDo (WhyMe). Блок поделен на 2 колонки, поэтому используем Flex со значением 50%*/
+.WhyMy{
+    display: flex;
+
+}
+.Why_item{
+    width: 50%; /* Секцию нужно поделить на 2 части, пэтому используем display Flex и внутри него 2 item co значением ширины 50%. В видео говорится что можно использовать flex: 1 1 0; как альтернатва*/
+    text-align: center;
+}
+
+/* Раздел с настройками для аккардеона*/
+.accordion_item{
+    border: #85a6d3 2px solid;
+    margin: 10px;
+}
+.accordion_item.active
+    .accordion_content{
+        display: block;
+    }
+.accordion_item.active
+    .accordion_header{
+        border-bottom-color: 1px solid #85a6d3;
+    }
+.accordion_item.active
+    .accordion_header:after{
+        transform: translateY(-30%) rotate(-45deg); /* Меняем положение стрелки в активном состоянии*/
+        margin-top: 10px;
+    }
+.accordion_header{
+    position: relative; /*Раскоментировать что бы иконка была выровненная*/
+    padding: 15px 20px;
+    border-bottom: 1px solid #85a6d3 transparent; /* transparent означает невидимый*/
+    padding: 15px; /* Внутренний отступ Заголовка*/
+    cursor: pointer; /* При наведении курсора будет рука на курсоре, призывающая нажать*/
+ }
+/* Стрелка для заголовков баяна*/
+.accordion_header:after { 
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    position: absolute;
+    top: 30%;
+    right: 20px;
+    z-index: 1;
+    transform: translateY(-30%) rotate(135deg); /* Позиционирование стрелки*/
+}
+.accordion_content{
+    display: none; /* none - отвечает за то, что бы по умолчанию контент был скрыт*/
+    padding: 15px 20px; /* Внутренний отступ для контента. 15px это лева и право, 20 верх и низ*/
+    color: #999;
+    font-style: italic;
+}
+.accordion_title{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+/*Reviews*/
+.reviews{
+    padding: 0 110px;  /* Отступы от правых краев*/
+    display: flex;
+    justify-content: center; /* Отсебятина для вырванивание 2 картинок*/
+    text-align: center;/* Отсебятина для вырванивание 2 картинок*/
+}
+
+.reviews_item{
+    padding-top: 10px; 
+    width: 70%;
+    position: relative;
+}
+.reviews_photo{
+    position: absolute;
+    top: 10px;
+    left: -130px;
+    z-index: 1;
+}
+.reviews_text{
+    font-size: 20px;
+    font-weight: 100;
+    color: #999;
+}
+/* Footer/ Подвал */
+.footer{
+    padding-top: 50px;
+    
+}
+.footer_text{
+    margin-bottom: 5px;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+}
+.footer_social{
+    margin-bottom: 5px;
+  }
+.footer_inner{
+    display: flex;
+    justify-content: space-between; /* Растягиваем контент и делаем между ними отступы*/
+   padding-bottom: 65px; /* Отступ снизу*/ 
+}
+
+.footer_col--first{  /* что бы раздел занимал 40% от ширины блока. Перед этим я указал в footer_inner dislay: flex;*/
+    width: 40%;
+}
+.footer_col--second{
+    width: 29%;
+}
+.footer_col--third{
+    width: 22%;
+}
+
+.footer_content a{   /* Через атрибут "а" я помечаю, что правила будут применятся для ссылок внутри а.*/
+    display: inline-block;
+    vertical-align: middle;
+    color: #000;
+    font-size: 24px;
+    margin-left: 10px; /* Каждая ссылка имеет отступ слева 10пксл*/
+  }
+  .subscribe{
+    width: 100%;
+    max-width: 380px;
+  }
+  .subscribe_input{
+    width: 60%;
+    padding: 5px 5px; /* Внутренние отступы*/
+    border: 1px solid #85a6d3;
+    font-size: 15px;
+    font-style: italic;
+    color: #85a6d3;
+  }
+  .subscribe_input:focus{  /* Когда начинаю набирать мейл в вводе пропадает бордер черный по умолчанию*/
+    outline: 0;  
+  }
+  .subscribe_btn{
+    width: 35%;
+    padding: 7px 15px;
+    background-color: #85a6d3;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: PFCentroSansPro-Italic;
+    transition: background .2s linear;
+  }
+  .subscribe_btn:hover{
+    background-color: #5483c5;
+  }
+  .testContent{
+    transition: 0.2s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+  }
